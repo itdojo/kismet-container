@@ -1,0 +1,19 @@
+services:
+  kismet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kismet
+    image: kismet:0.1
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    volumes:
+      - ./config/kismet_site.conf:/usr/local/etc/kismet_site.conf
+      - ./logs:/kismet_logs
+    environment:
+      - "KISMET_CONF_DIR=/usr/local/etc"
+      - "KISMET_LOG_DIR=/kismet_logs"
