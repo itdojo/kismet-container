@@ -6,6 +6,8 @@ These steps will create a Kismet image from scratch.  The image creation process
 
 If your system has only a small amount of RAM (i.e. low RAM VPS', Raspberry Pi, Beaglebone, Gateworks, LattePanda, or other SBCs) you need to create a temporary swap file to be used during the initial image build.  This is a **one-time*** requirement.  Once the image is built, you do not need a swap file to run a container.
 
+If you need a swapfile you can use `make-swapfile.sh` to create a temporary swapfile.  You do not need a swapfile to run the container, just to build it.
+
 ## Steps
 
 - [ ] Clone this repo.  
