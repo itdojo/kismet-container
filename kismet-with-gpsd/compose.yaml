@@ -1,0 +1,33 @@
+services:
+  gpsd_server:
+    build:
+      context: ./gpsd_server
+      dockerfile: Dockerfile
+    image: gpsd:0.1
+    container_name: gpsd
+    ports:
+      - 2947:2947
+    environment:
+      - GPS_DEVICE=${GPS_DEVICE}
+    devices:
+      - "${GPS_DEVICE}:${GPS_DEVICE}"
+    restart: unless-stopped
+
+  kismet:
+    build:
+      context: ./kismet
+      dockerfile: Dockerfile
+    image: kismet:0.1
+    container_name: kismet
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    volumes:
+      - ${KISMET_CONF_DIR}/kismet_site.conf:/usr/local/etc/kismet_site.conf
+      - ${KISMET_LOG_DIR}:/kismet_logs
+    environment:
+      - KISMET_CONF_DIR=/usr/local/etc
+      - KISMET_LOG_DIR=/kismet_logs
