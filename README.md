@@ -8,23 +8,10 @@ If your system has only a small amount of RAM (i.e. low RAM VPS', Raspberry Pi, 
 
 ## Steps
 
-- [ ] In your preferred container storage path, create a `kismet` folder with a `config` and `logs` subfolder.  Once created, change to the `kismet` folder.
-
-> Note: These steps assume your preferred path is `~/docker`.
-
-```shell
-mkdir -p ~/docker/kismet/{config,logs} && cd ~/docker/kismet
-```
-
-***
-
-- [ ] Create a `Dockerfile`.  Add the contents of the `Dockerfile` in your lab files.  This Dockerfile create a smaller image file (< 1GB) by using a multi-stage image build.
-
-- [ ] Create a `compose.yaml` file.  Add the contents of the `compose.yaml` file in your lab files.
-
-- [ ] Create a `kismet_site.conf` file in the `config` folder.  Add the contents of the `kismet_site.conf` file in you lab files.
-
+- [ ] Clone this repo.  
+- [ ] Edit `config/kismet_site.conf` to your liking.  Mostly this means specify the capture interface you prefer.
 - [ ] Set permissions on `logs` so container can write to it (`chmod 776 logs`)
+- [ ] Run `docker compose up -d`.
 
 Your folder/file structure should look like this:
 
@@ -38,3 +25,4 @@ kismet
 └── logs
 ```
 
+Kismet's log file are written to `logs/`
