@@ -27,10 +27,10 @@ kismet
 └── logs
 ```
 
-Kismet's log file are written to `logs/`
+Kismet's log file are written to `logs/`.
 
 ***
 
 ## Kismet with GPSD Stack
 
-**kismet-with-gpsd** containers the Docker files to build a container stack that runs both Kisment and GPSD.  You will need to edit the `.env` file with your GPS info.  You also need to update `kismet_site.conf` with the preferred Kismet settings you want to use.
+The folder **kismet-with-gpsd/** contains Docker files to build a container stack that runs both Kisment and GPSD.  You will need to edit the `.env` file with your GPS info.  You also need to update `kismet_site.conf` with the preferred Kismet settings you want to use.
