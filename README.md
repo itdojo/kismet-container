@@ -1,6 +1,6 @@
 # Running Kismet in a Docker Container
 
-These steps will create a Kismet image from scratch.  The image creation process builds Kismet from source.  This is a CPU and RAM intensive process.  Depending on your computer this can take ***a long time*** (hours).
+These steps will create a Kismet image from scratch.  The initial image creation process builds Kismet from source.  This is a CPU and RAM intensive process.  Depending on your computer this can take ***a long time*** (hours).  In my testing, a Raspberry Pi 4 will take several hours; a BeagleBone Black will take a 36-48 hours.
 
 ## Swap File Requirements for Low RAM Systems
 
